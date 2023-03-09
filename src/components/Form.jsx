@@ -1,27 +1,27 @@
 import {useState} from 'react'
 
-export const Form = ({agregarAnimal}) => {
+export const Form = ({agregarAnimal, agregarNombrePersona}) => {
   const [animal, setAnimal] = useState('')
   const [nombre, setNombre] = useState('')
-  
+
   function handlesubmit(e){
     e.preventDefault()
     if (!animal) return
-    agregarAnimal(animal)
-    setAnimal('')
+    agregarAnimal(animal, nombre)
+       setAnimal('')
     setNombre('')
    }
 
   return (
     <div>
     <form onSubmit={handlesubmit}>
-      <label>Ingresa tu nombre</label>
+      <label>Ingresa el nombre de tu mascota</label>
       <input 
       type="text"  
       value={nombre}
       onChange={(e) => setNombre(e.target.value)} />
 
-      <label>¿Cuál es tu animal favorito?</label>
+      <label>¿Qué tipo de animal es tu mascota?</label>
       <input 
       type="text"  
       value={animal}
