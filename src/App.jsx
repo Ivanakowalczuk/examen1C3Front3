@@ -7,7 +7,7 @@ import { getId } from './utils/getId'
 function App() {
   const [animalesPreferidos, setAnimalesPreferidos] = useState([])
   const [nombre, setNombre] = useState('')
-  
+
   function agregarAnimal(animal) {
   
     const nuevoAnimal = {
@@ -16,6 +16,7 @@ function App() {
     }
     setAnimalesPreferidos([...animalesPreferidos, nuevoAnimal])
   }
+ 
 
      return (
     <div className="App">
@@ -27,6 +28,7 @@ function App() {
             <Card
               key={animalPreferido.id}
               animal={animalPreferido.animal}
+              nombre={nombre}
                           />
           )
         })}
