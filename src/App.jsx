@@ -20,9 +20,9 @@ function App() {
  
      return (
     <div className="App">
-      <h1>Tu Animal Preferido</h1>
+      <h1>Tu Mascota</h1>
       <Form agregarAnimal={agregarAnimal} />
-      <ul>
+      <div>
         {animalesPreferidos.map((animalPreferido) => {
           return (
             <Card
@@ -33,7 +33,7 @@ function App() {
                           />
           )
         })}
-      </ul>
+      </div>
     </div>
   )
 }
