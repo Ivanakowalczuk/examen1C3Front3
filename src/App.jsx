@@ -1,17 +1,36 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
-import Form from './components/Form'
-import Card from './components/Card'
+import {Form} from './components/Form'
+import {Card} from './components/Card'
+import { getId } from './utils/getId'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [animalesPreferidos, setAnimalesPreferidos] = useState([])
+  const [nombre, setNombre] = useState('')
+  
+  function agregarAnimal(animal) {
+  
+    const nuevoAnimal = {
+      id: getId(),
+      animal,
+    }
+    setAnimalesPreferidos([...animalesPreferidos, nuevoAnimal])
+  }
 
-  return (
+     return (
     <div className="App">
-      <h1>Carga de estudiantes</h1>
-      <Form/>
-      <Card/>
+      <h1>Tu Animal Preferido</h1>
+      <Form agregarAnimal={agregarAnimal}/>
+      <ul>
+        {animalesPreferidos.map((animalPreferido) => {
+          return (
+            <Card
+              key={animalPreferido.id}
+              animal={animalPreferido.animal}
+                          />
+          )
+        })}
+      </ul>
     </div>
   )
 }
